@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Put, Delete } from '@nestjs/common';
+import { Controller, Post, Get } from '@nestjs/common';
 import { SongsService } from './songs.service';
 
 @Controller("songs")
@@ -7,22 +7,10 @@ export class SongsController {
 
     @Post()
     create() {
-        return "create a new song endpoint";
+        return this.songsService.create("Animals by Martin Garrix");
     }
     @Get()
     findAll() {
-        return "find all songs endpoint";
-    }
-    @Get(":id")
-    findOne() {
-        return "fetch song on the based on id";
-    }
-    @Put(":id")
-    update() {
-        return "update song on the based on id";
-    }
-    @Delete(":id")
-    delete() {
-        return "delete a song on the based on id";
+        return this.songsService.findAll();
     }
 }
